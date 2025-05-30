@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Impact in Numbers</title>
+
+  <!-- Montserrat Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #ffffff;
+    }
+
+    .talent-stats-section {
+      padding: 60px 15px;
+      background: linear-gradient(135deg, #ffffff, #ffffff);
+      text-align: center;
+    }
+
+    .talent-stats-section h2 {
+      font-size: 2rem;
+      color: #286834;
+      margin-bottom: 40px;
+      animation: pulseGrow 2s infinite;
+    }
+
+    .stats-grid {
+  display: flex;
+  flex-wrap: nowrap; /* 👈 disables wrapping */
+  justify-content: center;
+  gap: 20px;
+  overflow-x: auto;  /* 👈 adds horizontal scroll on small screens */
+  padding-bottom: 10px;
+}
+
+.stats-grid::-webkit-scrollbar {
+  height: 6px;
+}
+.stats-grid::-webkit-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 10px;
+}
+.stats-grid {
+  scroll-behavior: smooth;
+}
+
+
+    .stat-card {
+      background: #fff;
+      border-radius: 15px;
+      padding: 25px;
+      width: 100%;
+      max-width: 300px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s ease-in-out;
+    }
+
+    .stat-icon {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+    }
+
+    .stat-number {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #286834;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      color: #64748b;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .stat-underline {
+      height: 4px;
+      background: #8BC34A;
+      width: 80px;
+      margin: 0 auto;
+      animation: underlineGrow 1s forwards;
+      animation-delay: 1s;
+    }
+
+    /* Animations */
+    @keyframes pulseGrow {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes flipIn {
+      from { transform: perspective(400px) rotateY(90deg); opacity: 0; }
+      to { transform: perspective(400px) rotateY(0); opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes rotateIn {
+      from { transform: rotate(-30deg) scale(0.8); opacity: 0; }
+      to { transform: rotate(0) scale(1); opacity: 1; }
+    }
+
+    @keyframes underlineGrow {
+      from { width: 0; opacity: 0; }
+      to { width: 80px; opacity: 1; }
+    }
+
+    .flip-in {
+      animation: flipIn 1s forwards;
+      animation-delay: var(--delay, 0s);
+    }
+
+    .slide-up {
+      animation: slideUp 1s forwards;
+      animation-delay: var(--delay, 0s);
+    }
+
+    .rotate-in {
+      animation: rotateIn 1s forwards;
+      animation-delay: var(--delay, 0s);
+    }
+
+    .counter {
+      display: inline-block;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .stat-card {
+        width: 90%;
+      }
+
+      .talent-stats-section h2 {
+        font-size: 1.75rem;
+      }
+
+      .stat-number {
+        font-size: 2.2rem;
+      }
+
+      .stat-label {
+        font-size: 0.95rem;
+      }
+
+      .stat-icon {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .talent-stats-section {
+        padding: 40px 10px;
+      }
+
+      .stat-card {
+        padding: 20px;
+      }
+
+      .talent-stats-section h2 {
+        font-size: 1.5rem;
+        margin-bottom: 30px;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+      }
+
+      .stat-icon {
+        font-size: 1.8rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .stat-card {
+        padding: 16px;
+      }
+
+      .stat-number {
+        font-size: 1.8rem;
+      }
+
+      .stat-icon {
+        font-size: 1.6rem;
+      }
+
+      .stat-label {
+        font-size: 0.85rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="talent-stats-section">
+    <h2>Our Impact in Numbers</h2>
+    <div class="stats-grid">
+      <div class="stat-card flip-in" style="--delay: 0s">
+        <div class="stat-icon">👥</div>
+        <div class="stat-number counter" data-target="200000">0</div>
+        <div class="stat-label">Trained Students</div>
+        <div class="stat-underline"></div>
+      </div>
+
+      <div class="stat-card slide-up" style="--delay: 0.2s">
+        <div class="stat-icon">🤝</div>
+        <div class="stat-number counter" data-target="25">0</div>
+        <div class="stat-label">College MoUs</div>
+        <div class="stat-underline"></div>
+      </div>
+
+      <div class="stat-card rotate-in" style="--delay: 0.4s">
+        <div class="stat-icon">🏢</div>
+        <div class="stat-number counter" data-target="110">0</div>
+        <div class="stat-label">Private Projects</div>
+        <div class="stat-underline"></div>
+      </div>
+
+      <div class="stat-card rotate-in" style="--delay: 0.6s">
+        <div class="stat-icon">🏛️</div>
+        <div class="stat-number counter" data-target="5">0</div>
+        <div class="stat-label">Government Projects</div>
+        <div class="stat-underline"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const counters = document.querySelectorAll('.counter');
+    function animateCounter(counter) {
+      const target = +counter.getAttribute('data-target');
+      let count = 0;
+      const increment = target / 200;
+      const update = () => {
+        count += increment;
+        if (count < target) {
+          counter.innerText = Math.ceil(count);
+          requestAnimationFrame(update);
+        } else {
+          counter.innerText = target;
+        }
+      };
+      update();
+    }
+
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const card = entry.target;
+          card.style.opacity = '1';
+          card.style.transform = 'none';
+          const counter = card.querySelector('.counter');
+          if (counter && !counter.classList.contains('counted')) {
+            animateCounter(counter);
+            counter.classList.add('counted');
+          }
+          obs.unobserve(card);
+        }
+      });
+    }, {
+      threshold: 0.5
+    });
+
+    document.querySelectorAll('.stat-card').forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+
+</body>
+</html>
